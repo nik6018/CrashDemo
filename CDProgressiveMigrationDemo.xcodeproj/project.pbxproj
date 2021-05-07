@@ -13,6 +13,9 @@
 		E386D39A2641233500457D94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E386D3982641233500457D94 /* Main.storyboard */; };
 		E386D39C2641233A00457D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E386D39B2641233A00457D94 /* Assets.xcassets */; };
 		E386D39F2641233A00457D94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E386D39D2641233A00457D94 /* LaunchScreen.storyboard */; };
+		E3B0120E2642B45C00166E6A /* CDPM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3B0120C2642B45C00166E6A /* CDPM.xcdatamodeld */; };
+		E3B012112642B4F300166E6A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B012102642B4F300166E6A /* CoreDataManager.swift */; };
+		E3B012142642B89100166E6A /* AppLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B012132642B89100166E6A /* AppLoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		E386D39B2641233A00457D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E386D39E2641233A00457D94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E386D3A02641233A00457D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3B0120D2642B45C00166E6A /* CDPM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDPM.xcdatamodel; sourceTree = "<group>"; };
+		E3B012102642B4F300166E6A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E3B012132642B89100166E6A /* AppLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,7 @@
 		E386D3862641233500457D94 = {
 			isa = PBXGroup;
 			children = (
+				E3B0120C2642B45C00166E6A /* CDPM.xcdatamodeld */,
 				E386D3912641233500457D94 /* CDProgressiveMigrationDemo */,
 				E386D3902641233500457D94 /* Products */,
 			);
@@ -63,6 +70,8 @@
 				E386D39B2641233A00457D94 /* Assets.xcassets */,
 				E386D39D2641233A00457D94 /* LaunchScreen.storyboard */,
 				E386D3A02641233A00457D94 /* Info.plist */,
+				E3B012102642B4F300166E6A /* CoreDataManager.swift */,
+				E3B012132642B89100166E6A /* AppLoadingViewController.swift */,
 			);
 			path = CDProgressiveMigrationDemo;
 			sourceTree = "<group>";
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E386D3972641233500457D94 /* ViewController.swift in Sources */,
+				E3B0120E2642B45C00166E6A /* CDPM.xcdatamodeld in Sources */,
 				E386D3932641233500457D94 /* AppDelegate.swift in Sources */,
+				E3B012142642B89100166E6A /* AppLoadingViewController.swift in Sources */,
+				E3B012112642B4F300166E6A /* CoreDataManager.swift in Sources */,
 				E386D3952641233500457D94 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,16 +299,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = VL66M765MY;
 				INFOPLIST_FILE = CDProgressiveMigrationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.piro.CDProgressiveMigrationDemo.CDProgressiveMigrationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Piro.CDProgressiveMigrationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,16 +319,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = VL66M765MY;
 				INFOPLIST_FILE = CDProgressiveMigrationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.piro.CDProgressiveMigrationDemo.CDProgressiveMigrationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Piro.CDProgressiveMigrationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -341,6 +355,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E3B0120C2642B45C00166E6A /* CDPM.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E3B0120D2642B45C00166E6A /* CDPM.xcdatamodel */,
+			);
+			currentVersion = E3B0120D2642B45C00166E6A /* CDPM.xcdatamodel */;
+			path = CDPM.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E386D3872641233500457D94 /* Project object */;
 }

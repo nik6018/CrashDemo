@@ -16,7 +16,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        print("\(#function) Called")
+        
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            
+            // Show splash screen
+            let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AppLoadingViewController")
+            window.rootViewController = viewController
+            
+            self.window = window
+            window.makeKeyAndVisible()
+            
+            print("Loading Screen is Set")
+            
+            CoreDataManager.shared.setup {
+                // Always present the UI from a Main Thread
+                print("Core Data Stack is setup correctly")
+                DispatchQueue.main.async {
+                    self.presentHomeUI(using: window)
+                }
+            }
+
+
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,7 +69,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    /// Changes the root Controller to our designated Home controller,
+    /// this method is called right after Core Data Setup has finished
+    /// - Parameter window: The Window on which we'll set the root controller
+    func presentHomeUI(using window: UIWindow) {
+        print("Displaying the Home screen")
+        let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController")
+        window.rootViewController = viewController
+    }
 
 
+}
+
+extension UIApplication {
+    var currentWindow: UIWindow? {
+        connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+    }
 }
 
